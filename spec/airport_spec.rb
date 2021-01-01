@@ -13,34 +13,14 @@ describe Airport do
     end   
 
     it 'should have cappcity of 1' do   
-        airport = Airport.new 
+        airport = Airport.new(capacity = 1)
         expect(airport.capacity).to eq(1)
-    end 
+    end    
 
     describe 'land_plane' do 
-        it 'should land a plan at the airport' do 
+        it 'A plan should not land due to bad weather.' do 
             airport = Airport.new 
-            airport.weather  
-            if airport.weather == "sun"
-                expect(airport.land_plane).to eq(["plane"])  
-            else  
-                expect(airport.land_plane).to eq(nil) 
-            end  
-        end   
 
-        it 'it should say if the aitport is full' do 
-            airport = Airport.new  
-            if airport.weather == "sun"
-            airport.land_plane
-            expect(airport.land_plane).to eq("The aiport is full.")
-        end 
-        end 
-    end  
-
-    describe 'take_off' do 
-        it 'there should be no plans at the airport' do 
-            airport = Airport.new 
-            expect(airport.take_off).to eq([])
         end 
     end 
 end 

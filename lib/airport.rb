@@ -1,4 +1,6 @@
-class Airport 
+require_relative 'weather'   
+
+class Airport
 
     attr_accessor :plane, :runway, :capacity
     
@@ -8,31 +10,31 @@ class Airport
 
         @runway = [] 
 
-        @capacity = capacity
+        @capacity = capacity   
 
-    end   
+    end     
 
-    def weather  
+    def weather 
 
-        ["stormy", "sun", "sun", "sun"].shuffle.first 
+        ["stormy", "sun", "sun", "sun"].shuffle.first
+        
+    end
 
-    end 
-
-    def land_plane    
-
+    def land_plane   
+        
         airport = Airport.new 
 
         if airport.weather == "sun"
 
                 if @runway.length < @capacity  
 
-                "Plan has landed at the airport"
+                    "Plan has landed at the airport"
 
-                @runway << @plane   
+                    @runway << @plane   
 
-            else  
+                else  
 
-            "The airport is full."   
+                    "The airport is full."   
 
             end  
 
@@ -44,13 +46,14 @@ class Airport
     end 
 
     def take_off   
-
-        airport = Airport.new  
+        
+        airport = Airport.new 
 
         if airport.weather == "sun"  
 
-            puts "Plane is no longer in the airport" 
             @runway.pop 
+            
+            puts "Plane is no longer in the airport, there are now #{@runway.count} planes in the airport."  
 
         else  
 
@@ -58,4 +61,4 @@ class Airport
             
         end
     end  
-end
+end     
